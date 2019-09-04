@@ -20,7 +20,7 @@ let dealerMap = (function(){
 
 	function _mapInit(){
 		controls.map = new google.maps.Map(controlsDom.map, {
-			'zoom': 8,
+			'zoom': 6,
 			'mapTypeId': google.maps.MapTypeId.ROADMAP,
 			'center': new google.maps.LatLng(-40.848461, 174.763336),
 			'disableDefaultUI': true
