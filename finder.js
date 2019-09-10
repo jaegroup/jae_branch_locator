@@ -131,7 +131,7 @@ let dealerMap = (function(){
 		});
 		layers.branches.addListener('click', function(event){
 			_zoomToBranchArea(event.feature.getProperty('name'));
-			_displayInformationBox(event.feature);
+			_displayInformationBox(event.feature.getProperty('name'));
 		});				
 	}
 
