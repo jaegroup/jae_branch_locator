@@ -63,8 +63,8 @@ let dealerMap = (function(){
 		// }, false);
 	}
 
-	function _displayInformationBox(feature){
-		console.log(feature);
+	function _displayInformationBox(information){
+		console.log(information);
 		let branchInfoTplHtml = templatesDom.branchInfo.innerHTML;
 		document.getElementById('jae-branch-info').innerHTML = branchInfoTplHtml.replace('{{branch_name}}', feature.getProperty('name')).replace('{{branch_phone}}', feature.getProperty('branch_phone')).replace('{{branch_email}}', feature.getProperty('branch_email')).replace('{{branch_address}}', feature.getProperty('branch_address'));
 		document.getElementById('jae-branch-info').style.display = 'block';
