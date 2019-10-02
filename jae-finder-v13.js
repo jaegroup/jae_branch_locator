@@ -3145,7 +3145,7 @@ let dealerMap = (function() {
             // Enter key processing
             var key = e.which || e.keyCode;
             if (key === 13) { // 13 is enter
-                let place = e.target.value;
+                /* let place = e.target.value;
                 let branchData = _getMatchingBranchToLocation(place.geometry.location);
 
                 _updateUserLocationMarker(place.geometry.location);
@@ -3158,7 +3158,7 @@ let dealerMap = (function() {
 
                 _highlightBranch(branchData[0]);
 
-                e.target.value = '';
+                e.target.value = ''; */
             }
         });
 
