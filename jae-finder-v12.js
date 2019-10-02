@@ -3167,6 +3167,8 @@ let dealerMap = (function() {
             _zoomToBranchArea(e.target.value);
             _highlightBranch(e.target.value);
 
+            controlsDom.addressInput.value = '';
+
             _displayInformationBox(_getMatchingBranchToData(e.target.value));
         });
     }
@@ -3261,6 +3263,9 @@ let dealerMap = (function() {
             featureData[1] = event.feature.getProperty('branch_phone');
             featureData[2] = event.feature.getProperty('branch_email');
             featureData[3] = event.feature.getProperty('branch_slug');
+
+            controlsDom.selectRegion.value = featureData[0];
+
             _displayInformationBox(featureData);
         });
     }
