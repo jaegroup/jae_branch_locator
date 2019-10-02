@@ -3134,22 +3134,13 @@ let dealerMap = (function() {
             _highlightBranch(branchData[0]);
         });
 
-        google.maps.event.addListener(controlsDom.locationInput, "change", function(){
-          let place = this.value();
-          let branchData = _getMatchingBranchToLocation(place.geometry.location);
-
-          _updateUserLocationMarker(place.geometry.location);
-
-          _zoomToBranchArea(branchData[0]);
-
-          _displayInformationBox(branchData);
-
-          _highlightBranch(branchData[0]);
-        });
-
         controlsDom.addressInput.addEventListener('click', function(e) {
             //Erase contents of the autocomplete field upon user clicking in the field
             e.target.value = '';
+        });
+
+        controlsDom.locationInput.addEventListener('change', function(e) {
+            _zoomToBranchArea(e.target.value);
         });
     }
 
