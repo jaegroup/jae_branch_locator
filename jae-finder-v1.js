@@ -3138,10 +3138,6 @@ let dealerMap = (function() {
             //Erase contents of the autocomplete field upon user clicking in the field
             e.target.value = '';
         });
-
-        controlsDom.locationInput.addEventListener('change', function(e) {
-            _zoomToBranchArea(e.target.value);
-        });
     }
 
     function _mapEventBind() {
