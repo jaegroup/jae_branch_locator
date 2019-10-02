@@ -3265,6 +3265,7 @@ let dealerMap = (function() {
             featureData[3] = event.feature.getProperty('branch_slug');
 
             controlsDom.selectRegion.value = featureData[0];
+            controlsDom.addressInput.value = '';
 
             _displayInformationBox(featureData);
         });
