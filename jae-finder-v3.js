@@ -3101,7 +3101,7 @@ let dealerMap = (function() {
 
     function _mapInit() {
         controls.map = new google.maps.Map(controlsDom.map, {
-            'zoom': 6,
+            'zoom': 5,
             'mapTypeId': google.maps.MapTypeId.ROADMAP,
             'center': new google.maps.LatLng(-40.848461, 174.763336),
             'disableDefaultUI': true
@@ -3119,7 +3119,7 @@ let dealerMap = (function() {
             'types': ['geocode']
         });
 
-        google.maps.event.addListener(controls.autocomplete, "place_changed", function(event) {
+        google.maps.event.addListener(controls.autocomplete, "place_changed", function() {
             let place = this.getPlace();
             let branchName = _getMatchingBranchToLocation(place.geometry.location);
 
@@ -3127,8 +3127,7 @@ let dealerMap = (function() {
 
             _zoomToBranchArea(branchName);
 
-            //_displayInformationBox(branchName);
-            _displayInformationBox(event);
+            _displayInformationBox(branchName);
 
             _highlightBranch(branchName);
         });
@@ -3145,10 +3144,10 @@ let dealerMap = (function() {
         // }, false);
     }
 
-    function _displayInformationBox(event) {
-        console.log(event.feature.getProperty('name'));
+    function _displayInformationBox(feature) {
+        console.log(feature);
         let branchInfoTplHtml = templatesDom.branchInfo.innerHTML;
-        document.getElementById('jae-branch-info').innerHTML = branchInfoTplHtml.replace('{{branch_name}}', event.feature.getProperty('name')).replace('{{branch_phone}}', event.feature.getProperty('branch_phone')).replace('{{branch_email}}', event.feature.getProperty('branch_email')).replace('{{branch_slug}}', event.feature.getProperty('branch_slug'));
+        document.getElementById('jae-branch-info').innerHTML = branchInfoTplHtml.replace('{{branch_name}}', feature.getProperty('name')).replace('{{branch_phone}}', feature.getProperty('branch_phone')).replace('{{branch_email}}', feature.getProperty('branch_email')).replace('{{branch_slug}}', feature.getProperty('branch_slug'));
         document.getElementById('jae-branch-info').style.display = 'block';
     }
 
@@ -3222,7 +3221,7 @@ let dealerMap = (function() {
         });
         layers.branches.addListener('click', function(event) {
             _zoomToBranchArea(event.feature.getProperty('name'));
-            _displayInformationBox(event);
+            _displayInformationBox(event.feature.getProperty('name'));
         });
     }
 
