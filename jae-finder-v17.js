@@ -118,7 +118,7 @@ let dealerMap = (function() {
             },
             "properties": {
                 "name": "Queenstown",
-                "branch_phone": "03 448 5905",
+                "branch_phone": "03 442 7723",
                 "branch_email": "queenstown@jae.co.nz",
                 "branch_slug": "queenstown"
             }
@@ -239,7 +239,7 @@ let dealerMap = (function() {
                 "name": "Waikato",
                 "branch_phone": "07 847 8882",
                 "branch_email": "waikato@jae.co.nz",
-                "branch_slug": "waolatp"
+                "branch_slug": "waikato"
             }
         }, {
             "type": "Feature",
