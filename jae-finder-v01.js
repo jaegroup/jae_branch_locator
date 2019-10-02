@@ -3131,8 +3131,6 @@ let dealerMap = (function() {
 
             _displayInformationBox(branchData);
 
-            controlsDom.selectRegion.value = branchData[0];
-
             _highlightBranch(branchData[0]);
         });
 
@@ -3154,11 +3152,10 @@ let dealerMap = (function() {
 
                 _displayInformationBox(branchData);
 
-                controlsDom.selectRegion.value = branchData[0];
-
                 _highlightBranch(branchData[0]);
+                
+                e.target.value = '';
             }
-            e.target.value = '';
         });
 
         controlsDom.selectRegion.addEventListener('change', function(e) {
