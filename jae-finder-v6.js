@@ -3097,6 +3097,8 @@ let dealerMap = (function() {
         controlsDom.addressInput = document.getElementById('jae-branch-map-address-input');
         controlsDom.map = document.getElementById('jae-branch-map');
         templatesDom.branchInfo = document.getElementById('tpl-branch-info');
+
+        controlsDom.locationInput = document.getElementById('jae-branch-map-address-select');
     }
 
     function _mapInit() {
@@ -3113,6 +3115,13 @@ let dealerMap = (function() {
 
     function _autoCompleteInit() {
         controls.autocomplete = new google.maps.places.Autocomplete(controlsDom.addressInput, {
+            'ComponentRestrictions': {
+                'country': ['nz']
+            },
+            'types': ['geocode']
+        });
+
+        controls.autocomplete = new google.maps.places.Autocomplete(controlsDom.locationInput, {
             'ComponentRestrictions': {
                 'country': ['nz']
             },
