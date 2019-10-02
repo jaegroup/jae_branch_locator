@@ -2295,7 +2295,7 @@ let dealerMap = (function() {
                 ]
             },
             "properties": {
-                "name": "Wanganui",
+                "name": "Whanganui",
                 "branch_phone": "06 348 8100",
                 "branch_email": "whanganui@jae.co.nz",
                 "branch_slug": "whanganui"
