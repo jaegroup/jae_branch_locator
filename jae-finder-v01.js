@@ -3131,6 +3131,8 @@ let dealerMap = (function() {
 
             _displayInformationBox(branchData);
 
+            controlsDom.selectRegion.value = branchData[0];
+
             _highlightBranch(branchData[0]);
         });
 
@@ -3151,6 +3153,8 @@ let dealerMap = (function() {
                 _zoomToBranchArea(branchData[0]);
 
                 _displayInformationBox(branchData);
+
+                controlsDom.selectRegion.value = branchData[0];
 
                 _highlightBranch(branchData[0]);
             }
@@ -3175,7 +3179,6 @@ let dealerMap = (function() {
     function _displayInformationBox(featureData) {
         console.log(featureData);
         let branchInfoTplHtml = templatesDom.branchInfo.innerHTML;
-        controlsDom.selectRegion.value = featureData[0];
         document.getElementById('jae-branch-info').innerHTML = branchInfoTplHtml.replace(/{{branch_name}}/g, featureData[0]).replace(/{{branch_phone}}/g, featureData[1]).replace(/{{branch_email}}/g, featureData[2]).replace(/{{branch_slug}}/g, featureData[3]);
         document.getElementById('jae-branch-info').style.display = 'block';
     }
