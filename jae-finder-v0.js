@@ -3097,6 +3097,8 @@ let dealerMap = (function() {
         controlsDom.addressInput = document.getElementById('jae-branch-map-address-input');
         controlsDom.map = document.getElementById('jae-branch-map');
         templatesDom.branchInfo = document.getElementById('tpl-branch-info');
+
+        controlsDom.selectRegion = document.getElementById('jae-branch-map-address-select');
     }
 
     function _mapInit() {
@@ -3135,6 +3137,13 @@ let dealerMap = (function() {
         controlsDom.addressInput.addEventListener('click', function(e) {
             //Erase contents of the autocomplete field upon user clicking in the field
             e.target.value = '';
+        });
+
+        controlsDom.selectRegion.addEventListener('change', function(e) {
+            _defaultAllBranches();
+            _highlightBranch(e.target.value);
+
+            _displayInformationBox(_getMatchingBranchToData(e.target.value));
         });
     }
 
@@ -3255,6 +3264,21 @@ let dealerMap = (function() {
         return matchingData;
     }
 
+    function _getMatchingBranchToData(branchName) {
+        var matchingData = Array();
+        for (i = 0; i < branches_geojson.features.length; i++) {
+            if (branchName == branches_geojson.features[i].properties.name) {
+                matchingData[0] = branches_geojson.features[i].properties.name;
+                matchingData[1] = branches_geojson.features[i].properties.branch_phone;
+                matchingData[2] = branches_geojson.features[i].properties.branch_email;
+                matchingData[3] = branches_geojson.features[i].properties.branch_slug;
+
+                break;
+            }
+        }
+        return matchingData;
+    }
+
     return {
         initialize: _init
     }
@@ -3263,9 +3287,3 @@ let dealerMap = (function() {
 window.onload = function() {
     dealerMap.initialize();
 }
-
-jQuery(document).ready(function($) {
-    $("#jae-branch-map-address-select").on("change", function() {
-        alert($(this).val());
-    });
-});
